@@ -1,0 +1,17 @@
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\obj\Debug\net6.0-windows\PictureMatchGame.Form1.resources
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\obj\Debug\net6.0-windows\PictureMatchGame.Properties.Resources.resources
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\obj\Debug\net6.0-windows\PictureMatchGame.csproj.GenerateResource.cache
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\obj\Debug\net6.0-windows\PictureMatchGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\obj\Debug\net6.0-windows\PictureMatchGame.AssemblyInfoInputs.cache
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\obj\Debug\net6.0-windows\PictureMatchGame.AssemblyInfo.cs
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\obj\Debug\net6.0-windows\PictureMatchGame.csproj.CoreCompileInputs.cache
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\bin\Debug\net6.0-windows\PictureMatchGame.exe
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\bin\Debug\net6.0-windows\PictureMatchGame.deps.json
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\bin\Debug\net6.0-windows\PictureMatchGame.runtimeconfig.json
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\bin\Debug\net6.0-windows\PictureMatchGame.dll
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\bin\Debug\net6.0-windows\PictureMatchGame.pdb
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\obj\Debug\net6.0-windows\PictureMatchGame.dll
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\obj\Debug\net6.0-windows\refint\PictureMatchGame.dll
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\obj\Debug\net6.0-windows\PictureMatchGame.pdb
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\obj\Debug\net6.0-windows\PictureMatchGame.genruntimeconfig.cache
+C:\Users\raylaw\Desktop\Code\Csh\PictureMatchGame\obj\Debug\net6.0-windows\ref\PictureMatchGame.dll
