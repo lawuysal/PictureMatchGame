@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             gameScreen = new Panel();
+            textBox1 = new TextBox();
             button1 = new Button();
             tileOpen17 = new Panel();
             tileOpen18 = new Panel();
@@ -50,12 +52,14 @@
             tileOpen11 = new Panel();
             tileOpen6 = new Panel();
             tileOpen1 = new Panel();
+            timer1 = new System.Windows.Forms.Timer(components);
             gameScreen.SuspendLayout();
             SuspendLayout();
             // 
             // gameScreen
             // 
             gameScreen.BackColor = Color.SteelBlue;
+            gameScreen.Controls.Add(textBox1);
             gameScreen.Controls.Add(button1);
             gameScreen.Controls.Add(tileOpen17);
             gameScreen.Controls.Add(tileOpen18);
@@ -83,6 +87,14 @@
             gameScreen.Size = new Size(889, 654);
             gameScreen.TabIndex = 0;
             // 
+            // textBox1
+            // 
+            textBox1.Enabled = false;
+            textBox1.Location = new Point(731, 77);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(125, 27);
+            textBox1.TabIndex = 9;
+            // 
             // button1
             // 
             button1.Location = new Point(181, 592);
@@ -100,6 +112,7 @@
             tileOpen17.Name = "tileOpen17";
             tileOpen17.Size = new Size(100, 100);
             tileOpen17.TabIndex = 7;
+            tileOpen17.Click += tilesClicked;
             // 
             // tileOpen18
             // 
@@ -108,6 +121,7 @@
             tileOpen18.Name = "tileOpen18";
             tileOpen18.Size = new Size(100, 100);
             tileOpen18.TabIndex = 7;
+            tileOpen18.Click += tilesClicked;
             // 
             // tileOpen19
             // 
@@ -116,6 +130,7 @@
             tileOpen19.Name = "tileOpen19";
             tileOpen19.Size = new Size(100, 100);
             tileOpen19.TabIndex = 7;
+            tileOpen19.Click += tilesClicked;
             // 
             // tileOpen20
             // 
@@ -124,6 +139,7 @@
             tileOpen20.Name = "tileOpen20";
             tileOpen20.Size = new Size(100, 100);
             tileOpen20.TabIndex = 7;
+            tileOpen20.Click += tilesClicked;
             // 
             // tileOpen15
             // 
@@ -132,6 +148,7 @@
             tileOpen15.Name = "tileOpen15";
             tileOpen15.Size = new Size(100, 100);
             tileOpen15.TabIndex = 7;
+            tileOpen15.Click += tilesClicked;
             // 
             // tileOpen14
             // 
@@ -140,6 +157,7 @@
             tileOpen14.Name = "tileOpen14";
             tileOpen14.Size = new Size(100, 100);
             tileOpen14.TabIndex = 7;
+            tileOpen14.Click += tilesClicked;
             // 
             // tileOpen13
             // 
@@ -148,6 +166,7 @@
             tileOpen13.Name = "tileOpen13";
             tileOpen13.Size = new Size(100, 100);
             tileOpen13.TabIndex = 7;
+            tileOpen13.Click += tilesClicked;
             // 
             // tileOpen12
             // 
@@ -156,6 +175,7 @@
             tileOpen12.Name = "tileOpen12";
             tileOpen12.Size = new Size(100, 100);
             tileOpen12.TabIndex = 7;
+            tileOpen12.Click += tilesClicked;
             // 
             // tileOpen10
             // 
@@ -164,6 +184,7 @@
             tileOpen10.Name = "tileOpen10";
             tileOpen10.Size = new Size(100, 100);
             tileOpen10.TabIndex = 7;
+            tileOpen10.Click += tilesClicked;
             // 
             // tileOpen9
             // 
@@ -172,6 +193,7 @@
             tileOpen9.Name = "tileOpen9";
             tileOpen9.Size = new Size(100, 100);
             tileOpen9.TabIndex = 7;
+            tileOpen9.Click += tilesClicked;
             // 
             // tileOpen8
             // 
@@ -180,6 +202,7 @@
             tileOpen8.Name = "tileOpen8";
             tileOpen8.Size = new Size(100, 100);
             tileOpen8.TabIndex = 7;
+            tileOpen8.Click += tilesClicked;
             // 
             // tileOpen5
             // 
@@ -188,6 +211,7 @@
             tileOpen5.Name = "tileOpen5";
             tileOpen5.Size = new Size(100, 100);
             tileOpen5.TabIndex = 7;
+            tileOpen5.Click += tilesClicked;
             // 
             // tileOpen7
             // 
@@ -196,6 +220,7 @@
             tileOpen7.Name = "tileOpen7";
             tileOpen7.Size = new Size(100, 100);
             tileOpen7.TabIndex = 7;
+            tileOpen7.Click += tilesClicked;
             // 
             // tileOpen4
             // 
@@ -204,6 +229,7 @@
             tileOpen4.Name = "tileOpen4";
             tileOpen4.Size = new Size(100, 100);
             tileOpen4.TabIndex = 6;
+            tileOpen4.Click += tilesClicked;
             // 
             // tileOpen2
             // 
@@ -212,6 +238,7 @@
             tileOpen2.Name = "tileOpen2";
             tileOpen2.Size = new Size(100, 100);
             tileOpen2.TabIndex = 5;
+            tileOpen2.Click += tilesClicked;
             // 
             // tileOpen3
             // 
@@ -220,6 +247,7 @@
             tileOpen3.Name = "tileOpen3";
             tileOpen3.Size = new Size(100, 100);
             tileOpen3.TabIndex = 4;
+            tileOpen3.Click += tilesClicked;
             // 
             // tileOpen16
             // 
@@ -228,6 +256,7 @@
             tileOpen16.Name = "tileOpen16";
             tileOpen16.Size = new Size(100, 100);
             tileOpen16.TabIndex = 3;
+            tileOpen16.Click += tilesClicked;
             // 
             // tileOpen11
             // 
@@ -236,6 +265,7 @@
             tileOpen11.Name = "tileOpen11";
             tileOpen11.Size = new Size(100, 100);
             tileOpen11.TabIndex = 2;
+            tileOpen11.Click += tilesClicked;
             // 
             // tileOpen6
             // 
@@ -244,6 +274,7 @@
             tileOpen6.Name = "tileOpen6";
             tileOpen6.Size = new Size(100, 100);
             tileOpen6.TabIndex = 1;
+            tileOpen6.Click += tilesClicked;
             // 
             // tileOpen1
             // 
@@ -253,6 +284,12 @@
             tileOpen1.Name = "tileOpen1";
             tileOpen1.Size = new Size(100, 100);
             tileOpen1.TabIndex = 0;
+            tileOpen1.Click += tilesClicked;
+            // 
+            // timer1
+            // 
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
             // 
             // Form1
             // 
@@ -263,6 +300,7 @@
             Name = "Form1";
             Text = "Form1";
             gameScreen.ResumeLayout(false);
+            gameScreen.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -290,5 +328,7 @@
         private Panel tileOpen14;
         private Panel tileOpen13;
         private Button button1;
+        private System.Windows.Forms.Timer timer1;
+        private TextBox textBox1;
     }
 }
