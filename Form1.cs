@@ -2,15 +2,11 @@ namespace PictureMatchGame
 {
     public partial class Form1 : Form
     {
-        Game playerFirst;
-        Game playerSecond;
+
         public Form1()
         {
             InitializeComponent();
 
-            // Initialize players
-            playerFirst = new Game();
-            playerSecond = new Game();
 
             // Initialize images
             Game.images.Add((Image)Properties.Resources._01);
@@ -30,9 +26,6 @@ namespace PictureMatchGame
                 Panel tile = (Panel)gameScreen.Controls.Find($"tileOpen{i + 1}", false).FirstOrDefault();
                 Game.tiles.Add(tile);
             }
-
-            // Start the timer
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,11 +33,20 @@ namespace PictureMatchGame
             Game.initImages(ref gameScreen);
             textBox1.Text = Game.currentTime.ToString();
             timer1.Start();
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            string test = Game.checkGame();
+            if (Game.isGameDone && test != " ")
+            {
+                MessageBox.Show(test);
+            }
+            if (Game.isGameDone)
+            {
+                timer1.Stop();
+                timer1.Enabled = false;
+            }
             if (Game.currentTime > 0)
             {
                 Game.currentTime--;
@@ -53,11 +55,13 @@ namespace PictureMatchGame
 
             if (Game.currentTime == 0)
             {
-                Game.turnBackAllImages(ref gameScreen);
-
+                Game.turnBackAllImages(gameScreen);
+                if (Game.tileFixer == 1)
+                {
+                    Game.switchPlayer();
+                    Game.switchPlayerIndicatorColor(playerFirstLabel, playerSecondLabel);
+                }
             }
-
-            Game.checkTileMatch();
         }
 
         private void tilesClicked(object sender, EventArgs e)
@@ -66,9 +70,24 @@ namespace PictureMatchGame
             int index = Game.tileNumberParser(tile) - 1;
 
             Game.tiles[index].BackgroundImage = Game.currentImages[index];
-            Game.currentTime = Game.flashingTime;
+            if (Game.tileFixer == 0)
+            {
+                Game.currentTime = 5;
+                textBox1.Text = Game.currentTime.ToString();
+            }
+            if (Game.tileFixer == 1)
+            {
+                Game.currentTime = 2;
+                textBox1.Text = Game.currentTime.ToString();
+            }
 
-            
+            Game.checkTileMatch(playerFirstScoreBox, playerSecondScoreBox,
+                playerFirstLabel, playerSecondLabel, gameScreen);
+        }
+
+        private void gameScreen_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

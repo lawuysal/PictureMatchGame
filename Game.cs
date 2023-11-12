@@ -10,21 +10,79 @@ namespace PictureMatchGame
     public class Game
     {
         public static Random random = new Random();
-        public static int flashingTime = 3;
+        public static int flashingTime = 5;
         public static int currentTime = flashingTime;
+        public static bool isGameDone = false;
+        public static bool isGameStarted = false;
         public static bool isFirstPlayer = true;
         public static List<Image> images = new List<Image>();
         public static List<Panel> tiles = new List<Panel>();
         public static List<Image> randomizedImages = new List<Image>();
         public static List<Image> currentImages = new List<Image>();
         public static int completedPairCount = 0;
-        public int score = 0;
+        public static int openedTileCount = 0;
+        public static int tileFixer = 0;
+        public static int firstPlayerScore = 0;
+        public static int secondPlayerScore = 0;
 
-
-        public static void checkTileMatch()
+        public static string checkGame()
         {
+            if (firstPlayerScore == 20 && !isGameDone)
+            {
+                isGameDone = true;
+                return "Player 1 Won!";
+                
+            }
+            if (secondPlayerScore == 20 && !isGameDone)
+            {
+                isGameDone = true;
+                return "Player 2 Won!";
+                
+            }
+            if (firstPlayerScore == 10 && secondPlayerScore == firstPlayerScore && !isGameDone)
+            {
+                isGameDone = true;
+                return "Draw!";                
+            }
+            return " ";
+        }
+        public static void switchPlayerIndicatorColor
+            (Label playerFirstScoreLabel, Label playerSecondScoreLabel)
+        {
+            if (isFirstPlayer)
+            {
+                playerFirstScoreLabel.ForeColor = Color.Red;
+                playerSecondScoreLabel.ForeColor = Color.Black;
+            }
+            else
+            {
+                playerSecondScoreLabel.ForeColor = Color.Red;
+                playerFirstScoreLabel.ForeColor = Color.Black;
+            }
+        }
+        public static void switchPlayer()
+        {
+            isFirstPlayer = !isFirstPlayer;
+            tileFixer = 0;
+        }
+        public static void addPoints(TextBox playerFirstScoreBox, TextBox playerSecondScoreBox)
+        {
+            if (isFirstPlayer)
+            {
+                firstPlayerScore += 10;
+                playerFirstScoreBox.Text = firstPlayerScore.ToString();
+            } 
+            else
+            {
+                secondPlayerScore += 10;
+                playerSecondScoreBox.Text = secondPlayerScore.ToString();
+            }
+        }
+        public async static void checkTileMatch
+            (TextBox playerFirstScoreBox, TextBox playerSecondScoreBox, 
+            Label playerFirstScoreLabel, Label playerSecondScoreLabel, Panel gameScreen)
+        { 
             
-            int openedTileCount = 0;
             List<Panel> openedTiles = new List<Panel>(); 
             foreach (Panel tile in tiles)
             {
@@ -32,33 +90,62 @@ namespace PictureMatchGame
                 {
                     openedTiles.Add(tile);
                     openedTileCount++;
+                    tileFixer++;
                 }
+            }
+            if (openedTileCount == 1 && Game.currentTime == 0) 
+            {
+                switchPlayer();
+                switchPlayerIndicatorColor(playerFirstScoreLabel, playerSecondScoreLabel);
+                turnBackAllImages(gameScreen);
+
             }
             if (openedTileCount == 2)
             {
+                await Task.Delay(1000);
                 if (openedTiles[0].BackgroundImage == openedTiles[1].BackgroundImage)
                 {
+                    
                     foreach (Panel tile in openedTiles)
                     {
                         currentTime++;
-                        tile.BackgroundImage = null;
                         tile.BackColor = Color.White;
+                        tile.BackgroundImage = null;
+                        tile.Enabled = false;
                     }
+                    completedPairCount++;
+                    addPoints(playerFirstScoreBox, playerSecondScoreBox);
+                    openedTileCount = 0;
+                    tileFixer = 0;
+                    
+             
+                }
+                else
+                {
+                    switchPlayer();
+                    switchPlayerIndicatorColor(playerFirstScoreLabel, playerSecondScoreLabel);
+                    
                 }
             }
+            openedTileCount = 0;
         }
         public static int tileNumberParser (Panel tile)
         {
             string tileName = tile.Name.Substring(8);
             return int.Parse(tileName.ToString());
         }
-        public static void turnBackAllImages(ref Panel gameScreen)
+        public static void turnBackAllImages(Panel gameScreen)
         {
             foreach (Panel tile in tiles)
             {
                 tile.BackgroundImage = null;
                 //tile.BackColor = Color.Wheat;
+                if (!isGameStarted)
+                {
+                    tile.Enabled = true;
+                }
             }
+            isGameStarted = true;
         }
         public static void initImages(ref Panel gameScreen)
         {
