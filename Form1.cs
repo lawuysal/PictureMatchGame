@@ -9,19 +9,29 @@ namespace PictureMatchGame
 
 
             // Initialize images
-            Game.images.Add((Image)Properties.Resources._01);
-            Game.images.Add((Image)Properties.Resources._02);
-            Game.images.Add((Image)Properties.Resources._03);
-            Game.images.Add((Image)Properties.Resources._04);
-            Game.images.Add((Image)Properties.Resources._05);
-            Game.images.Add((Image)Properties.Resources._06);
-            Game.images.Add((Image)Properties.Resources._07);
-            Game.images.Add((Image)Properties.Resources._08);
-            Game.images.Add((Image)Properties.Resources._09);
-            Game.images.Add((Image)Properties.Resources._10);
+            Game.images.Add((Image)Properties.Resources._11);
+            Game.images.Add((Image)Properties.Resources._12);
+            Game.images.Add((Image)Properties.Resources._13);
+            Game.images.Add((Image)Properties.Resources._14);
+            Game.images.Add((Image)Properties.Resources._15);
+            Game.images.Add((Image)Properties.Resources._16);
+            Game.images.Add((Image)Properties.Resources._17);
+            Game.images.Add((Image)Properties.Resources._18);
+            Game.images.Add((Image)Properties.Resources._19);
+            Game.images.Add((Image)Properties.Resources._20);
+            Game.images.Add((Image)Properties.Resources._21);
+            Game.images.Add((Image)Properties.Resources._22);
+            Game.images.Add((Image)Properties.Resources._23);
+            Game.images.Add((Image)Properties.Resources._24);
+            Game.images.Add((Image)Properties.Resources._25);
+            Game.images.Add((Image)Properties.Resources._26);
+            Game.images.Add((Image)Properties.Resources._27);
+            Game.images.Add((Image)Properties.Resources._28);
+            Game.images.Add((Image)Properties.Resources._29);
+            Game.images.Add((Image)Properties.Resources._30);
 
             // Initialize tile list
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 40; i++)
             {
                 Panel tile = (Panel)gameScreen.Controls.Find($"tileOpen{i + 1}", false).FirstOrDefault();
                 Game.tiles.Add(tile);
@@ -33,6 +43,8 @@ namespace PictureMatchGame
             Game.initImages(ref gameScreen);
             textBox1.Text = Game.currentTime.ToString();
             timer1.Start();
+            button1 .Enabled = false;
+            button1.BackColor = Color.Gray;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -86,6 +98,11 @@ namespace PictureMatchGame
         }
 
         private void gameScreen_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }

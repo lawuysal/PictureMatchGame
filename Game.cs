@@ -27,19 +27,19 @@ namespace PictureMatchGame
 
         public static string checkGame()
         {
-            if (firstPlayerScore == 20 && !isGameDone)
+            if (firstPlayerScore == 110 && !isGameDone)
             {
                 isGameDone = true;
                 return "Player 1 Won!";
                 
             }
-            if (secondPlayerScore == 20 && !isGameDone)
+            if (secondPlayerScore == 110 && !isGameDone)
             {
                 isGameDone = true;
                 return "Player 2 Won!";
                 
             }
-            if (firstPlayerScore == 10 && secondPlayerScore == firstPlayerScore && !isGameDone)
+            if (firstPlayerScore == 100 && secondPlayerScore == firstPlayerScore && !isGameDone)
             {
                 isGameDone = true;
                 return "Draw!";                
@@ -109,7 +109,7 @@ namespace PictureMatchGame
                     foreach (Panel tile in openedTiles)
                     {
                         currentTime++;
-                        tile.BackColor = Color.White;
+                        tile.BackColor = Color.SteelBlue;
                         tile.BackgroundImage = null;
                         tile.Enabled = false;
                     }
@@ -164,13 +164,13 @@ namespace PictureMatchGame
             currentImages = shuffledImages;
 
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 40; i++)
             {
                 int index = i;
 
                 while (initializedTiles.Contains(index))
                 {
-                    index = random.Next(20);
+                    index = random.Next(40);
                 }
 
                 initializedTiles.Add(index);
